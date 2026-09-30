@@ -6,7 +6,12 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5174,
-    proxy: { "/api": { target: "http://localhost:5001", changeOrigin: true } },
+    proxy: {
+      "/api": {
+        target: "https://clothing-store-website-server.onrender.com",
+        changeOrigin: true,
+      },
+    },
   },
   build: {
     rollupOptions: {
