@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-canvas font-sans text-[14px] text-ink antialiased; }
+  input, select, textarea { @apply outline-none; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition active:scale-[.98] disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-brand text-white hover:bg-brand-dark; }
+  .btn-dark { @apply btn bg-side text-white hover:bg-side-2; }
+  .btn-light { @apply btn border border-line bg-white hover:bg-canvas; }
+  .btn-danger { @apply btn bg-red-600 text-white hover:bg-red-700; }
+  .btn-icon { @apply inline-flex h-8 w-8 items-center justify-center rounded-lg text-muted transition hover:bg-canvas hover:text-ink; }
+  .input { @apply w-full rounded-lg border border-line bg-white px-3 py-2.5 text-sm placeholder:text-muted/60 transition focus:border-brand/50 focus:ring-4 focus:ring-brand/10; }
+  .label { @apply mb-1.5 block text-xs font-medium text-muted; }
+  .card { @apply rounded-xl border border-line bg-white shadow-card; }
+  .th { @apply whitespace-nowrap px-4 py-3 text-left text-[11px] font-medium uppercase tracking-wider text-muted; }
+  .td { @apply px-4 py-3 align-middle; }
+  .skeleton { @apply animate-pulse rounded-lg bg-line/70; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+}

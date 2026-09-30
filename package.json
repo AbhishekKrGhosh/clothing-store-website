@@ -1,0 +1,17 @@
+{
+  "name": "aaro-store",
+  "private": true,
+  "version": "1.0.0",
+  "description": "AARO — MERN clothing store: API server, storefront and admin panel",
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install && npm --prefix admin install",
+    "dev": "concurrently -k -n api,store,admin -c yellow,cyan,magenta \"npm --prefix server run dev\" \"npm --prefix client run dev\" \"npm --prefix admin run dev\"",
+    "seed": "npm --prefix server run seed",
+    "seed:fresh": "npm --prefix server run seed:fresh",
+    "build": "npm --prefix client run build && npm --prefix admin run build:server",
+    "start": "npm --prefix server start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

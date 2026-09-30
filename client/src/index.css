@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --c-primary: 180 83 42;
+  --c-primaryDark: 150 67 31;
+  --c-secondary: 47 58 45;
+  --c-accent: 201 162 126;
+  --c-background: 248 244 238;
+  --c-surface: 255 255 255;
+  --c-surfaceAlt: 241 234 224;
+  --c-text: 42 37 33;
+  --c-muted: 125 115 105;
+  --c-border: 232 223 211;
+  --font-heading: 'Cormorant Garamond';
+  --font-body: 'Jost';
+  --radius: 10px;
+}
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
+  body { @apply bg-bg text-ink font-body antialiased; text-rendering: optimizeLegibility; }
+  h1, h2, h3, h4 { font-family: var(--font-heading), Georgia, serif; letter-spacing: -0.01em; }
+  ::selection { @apply bg-primary/20; }
+  img { -webkit-user-drag: none; }
+  input, select, textarea { @apply outline-none; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium tracking-wide transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed active:scale-[.98]; }
+  .btn-primary { @apply btn bg-primary text-white hover:bg-primary-dark shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/25; }
+  .btn-dark { @apply btn bg-secondary text-white hover:brightness-110; }
+  .btn-outline { @apply btn border border-ink/25 text-ink hover:border-ink hover:bg-ink hover:text-bg; }
+  .btn-ghost { @apply btn px-3 hover:bg-ink/5; }
+  .link-arrow { @apply inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:gap-2.5 transition-all; }
+  .input { @apply w-full rounded-brand border border-line bg-surface px-4 py-3 text-sm placeholder:text-muted/70 focus:border-primary/60 focus:ring-4 focus:ring-primary/10 transition; }
+  .label { @apply mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted; }
+  .card { @apply rounded-brand bg-surface border border-line/70; }
+  .section { @apply py-12 md:py-16; }
+  .section-title { @apply font-heading text-3xl md:text-[2.4rem] leading-tight font-medium; }
+  .chip { @apply inline-flex items-center rounded-full border px-4 py-1.5 text-xs md:text-sm transition-all whitespace-nowrap; }
+  .skeleton { @apply relative overflow-hidden bg-surface-alt; }
+  .skeleton::after { content: ''; @apply absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/50 to-transparent; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+  .prose-aaro p { @apply mb-5 leading-8 text-ink/85; }
+}
